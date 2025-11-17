@@ -1,0 +1,95 @@
+/* ===== Signup Page Background ===== */
+.signup-page {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Signup Card ===== */
+.signup {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* ===== Text ===== */
+.signup h2 {
+  color: #185a9d;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.signup p {
+  color: #555;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ===== Inputs ===== */
+.signup input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup input:focus {
+  border-color: #43cea2;
+  box-shadow: 0 0 6px rgba(67, 206, 162, 0.4);
+}
+
+/* ===== Button ===== */
+.signup button {
+  width: 100%;
+  padding: 12px;
+  background-color: #185a9d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.signup button:hover {
+  background-color: #154c83;
+  transform: translateY(-2px);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .signup {
+    width: 85%;
+    padding: 1.5rem;
+  }
+
+  .signup h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup {
+    width: 90%;
+    padding: 1.2rem;
+  }
+
+  .signup input,
+  .signup button {
+    font-size: 0.95rem;
+  }
+}
