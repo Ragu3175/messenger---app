@@ -26,6 +26,9 @@ const signupuser = mongoose.Schema({
         type:String,
         required:[true]
     },
+    // otpHash : String,
+    // otpExpiry : Date,
+    // isVerified : {type:Boolean,default:false},
     contact:[constactSchema]
 },{
     timestamps:true,

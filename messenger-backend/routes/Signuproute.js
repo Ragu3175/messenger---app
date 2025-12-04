@@ -11,4 +11,6 @@ router.get("/currentuser",validToken,currentuser);
 
 router.get("/alluserdata",getAllUser);
 
+// router.post("/otpverification",otpVerification)
+
 module.exports = router;

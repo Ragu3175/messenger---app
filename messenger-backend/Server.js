@@ -5,7 +5,7 @@ const app=express();
 const http = require("http");
 const {Server} = require("socket.io");
 const jwt = require("jsonwebtoken");
-
+const Messagemodel = require("./model/Messagemodel");
 
 const connectDb = require('./config/dbconfig');
 
@@ -26,6 +26,9 @@ app.use("/api/signup",signup);
 
 const savesContacts = require("./routes/contactRoute");
 app.use("/api/savedcontact",savesContacts);
+
+const messagehistory = require("./routes/MessageHistoryRoute")
+app.use("/api/message",messagehistory);
 
 
 const { Socket } = require("dgram");
@@ -64,8 +67,15 @@ io.on("connection",(socket) => {
         username:user.username
     })
 
-    socket.on("private-message",({toPhone,text}) => {
+    socket.on("private-message",async({toPhone,text}) => {
         const targetSocketId = onlineUser[toPhone];
+
+        await Messagemodel.create({
+            from:user.phone,
+            to:toPhone,
+            text
+        })
+
         if(targetSocketId){
             io.to(targetSocketId).emit("received-message",{
                 from: user.phone,

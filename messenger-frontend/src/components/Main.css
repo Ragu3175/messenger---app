@@ -1,4 +1,4 @@
-/* ---------- ROOT COLORS ---------- */
+
 :root {
   --bg-dark: #111b21;
   --bg-light: #f0f2f5;
@@ -10,7 +10,7 @@
   --accent: #4aa3a1;
 }
 
-/* ---------- MAIN LAYOUT ---------- */
+
 .chat {
   display: flex;
   height: 100vh;
@@ -19,7 +19,6 @@
   color: white;
 }
 
-/* ---------- LEFT SIDEBAR (CONTACTS) ---------- */
 .user-num {
   width: 30%;
   background: var(--sidebar-bg);
@@ -54,7 +53,7 @@
   background: #3b4a54;
 }
 
-/* ---------- CHAT AREA ---------- */
+
 .message-area {
   width: 70%;
   background: var(--bg-light);
@@ -64,7 +63,7 @@
   flex-direction: column;
 }
 
-/* Chat Header */
+
 .message-area h1 {
   background: var(--accent);
   color: white;
@@ -75,7 +74,7 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Messages Container */
+
 .messages {
   flex: 1;
   padding: 15px;
@@ -86,7 +85,7 @@
   gap: 12px;
 }
 
-/* Message Styles */
+
 .message {
   max-width: 70%;
   padding: 12px;
@@ -105,9 +104,9 @@
   background: var(--other-msg);
 }
 
-/* ---------- INPUT AREA ---------- */
+
 .typing-area {
-  position: absolute;   /* fixes to bottom */
+  position: absolute;   
   bottom: 0;
   border-radius: 10px;
   width: 95%;
@@ -144,7 +143,7 @@
   transform: scale(1.05);
 }
 
-/* ---------- RESPONSIVE ---------- */
+
 @media (max-width: 800px) {
   .chat {
     flex-direction: column;
@@ -160,4 +159,4 @@
     width: 100%;
     height: calc(100vh - 200px);
   }
-}
+}  

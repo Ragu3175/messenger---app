@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import {io} from 'socket.io-client';
 import './Main.css'
 import Inbox from "./Inbox";
+import axios from "axios";
 
 function Main() {
     const[message,setMessage] = useState("");
@@ -17,13 +18,30 @@ function Main() {
 
 
 
-    const handleSelectConatct = (contact) => {
+    const handleSelectConatct = async(contact) => {
       selectContactRef.current = contact;
       setSelectContact(contact);
+      const token = localStorage.getItem("token");
       const phone = contact.phone;
       if(!chatHistory.current[phone]){
         chatHistory.current[phone] = [];
       }
+      try{
+        const res = await axios.get(`http://localhost:5000/api/message/history/${phone}`,{
+          headers : {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        const oldChats = res.data;
+        chatHistory.current[phone] = oldChats.map(m=>({
+          from:m.from,
+          text:m.text,
+          isOwn:m.from === currentUserPhone
+        }))
+      }catch(err){
+        console.error("something went wront in frontend while fecthing the chat")
+      }
+      
       setMessages([...chatHistory.current[phone]])
     }
 
