@@ -11,4 +11,4 @@ const messageModel = mongoose.Schema({
     timestamps:true
 });
 
-module.exports=mongoose.model("messageHistory",messageModel);
+module.exports=mongoose.model("messageHistories",messageModel);

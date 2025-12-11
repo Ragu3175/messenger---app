@@ -5,6 +5,7 @@ import Inbox from "./Inbox";
 import axios from "axios";
 
 function Main() {
+   const API= `${process.env.REACT_APP_API_URL}`
     const[message,setMessage] = useState("");
     const [toPhone,setToPhone]=useState("");
     // const [contact,setContact] = useState([]);
@@ -27,7 +28,7 @@ function Main() {
         chatHistory.current[phone] = [];
       }
       try{
-        const res = await axios.get(`http://localhost:5000/api/message/history/${phone}`,{
+        const res = await axios.get(`${API}/api/message/history/${phone}`,{
           headers : {
             Authorization: `Bearer ${token}`
           }
@@ -49,7 +50,7 @@ function Main() {
       const token = localStorage.getItem("token");
       if(!token) return;
 
-      const newSocket = io("http://localhost:5000",{
+      const newSocket = io(`${API}`,{
         auth:{token},
       });
 

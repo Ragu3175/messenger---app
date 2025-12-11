@@ -1,15 +1,14 @@
 import { useState } from "react";
 import axios from "axios"
-
+import './Contactsaving.css'
 function Contactsaving() {
     const [contactName,setContactName] = useState("");
     const [contactNumber,setContactNumber] = useState("");
-    
-
+   const API= `${process.env.REACT_APP_API_URL}`
     const handleContactSave = async() => {
         try{
             const token = await localStorage.getItem("token")
-            const res = await axios.post("http://localhost:5000/api/savedcontact",{
+            const res = await axios.post(`${API}/api/savedcontact`,{
                 contactName,
                 contactNumber
             },{

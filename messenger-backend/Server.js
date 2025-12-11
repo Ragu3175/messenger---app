@@ -1,34 +1,37 @@
-const express = require("express");
-const cors = require("cors");
+// const express = require("express");
+// const cors = require("cors");
+
+const app=require('./app')
 const dotenv = require("dotenv").config();
-const app=express();
 const http = require("http");
 const {Server} = require("socket.io");
 const jwt = require("jsonwebtoken");
 const Messagemodel = require("./model/Messagemodel");
-
 const connectDb = require('./config/dbconfig');
 
 connectDb();
 
-app.use(cors());
-app.use(express.json());
+// const app=express();
+// app.use(cors());
+// app.use(express.json());
 
 
 
-app.get("/",(req,res) => {
-    res.send("App is running");
-})
 
 
-const signup = require("./routes/Signuproute");
-app.use("/api/signup",signup);
+// app.get("/",(req,res) => {
+//     res.send("App is running");
+// })
 
-const savesContacts = require("./routes/contactRoute");
-app.use("/api/savedcontact",savesContacts);
 
-const messagehistory = require("./routes/MessageHistoryRoute")
-app.use("/api/message",messagehistory);
+// const signup = require("./routes/Signuproute");
+// app.use("/api/signup",signup);
+
+// const savesContacts = require("./routes/contactRoute");
+// app.use("/api/savedcontact",savesContacts);
+
+// const messagehistory = require("./routes/MessageHistoryRoute")
+// app.use("/api/message",messagehistory);
 
 
 const { Socket } = require("dgram");
@@ -36,7 +39,7 @@ const { Socket } = require("dgram");
 const server = http.createServer(app);
 const io = new Server(server,{
     cors:{
-        origin:"http://localhost:3000",
+        origin:["http://localhost:3000","http://localhost:3001"],
         method:["GET","POST"]
     }
 });
@@ -98,3 +101,5 @@ server.listen(PORT,() => {
     console.log(`Server is running on port ${PORT}`);
 })
 
+
+module.exports=server

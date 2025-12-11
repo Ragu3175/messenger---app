@@ -2,7 +2,7 @@ const Signup = require("../model/Signupmodel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const client = require("twilio")(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
+// const client = require("twilio")(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
 const adduser = async(req,res) => {
     try{
         const {username,phone,password} = req.body;
@@ -76,7 +76,7 @@ const loginuser = async(req,res) => {
 
 const getAllUser = async(req,res) => {
     try{
-        const getallUser = await Signup.findAll({});
+        const getallUser = await Signup.find({});
         res.status(201).json({message:"all users data",getAllUser})
     }catch(err){
         res.status(500).json({message:"server error while get all user"})

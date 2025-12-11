@@ -1,4 +1,14 @@
-messenger-frontend/node_modules
-messenger-backend/node_modules
+# Node modules
+messenger-frontend/node_modules/
+messenger-backend/node_modules/
 
-messenger-backend/.env 
+# Environment variables
+messenger-backend/.env
+messenger-frontend/.env
+.env
+*/.env
+
+.env*
+# Build folders
+messenger-frontend/dist/
+messenger-frontend/build/

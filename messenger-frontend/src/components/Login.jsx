@@ -3,12 +3,13 @@ import { useNavigate} from "react-router-dom";
 import axios from "axios";
 import './Login.css'
 function Login() {
+    const API= `${process.env.REACT_APP_API_URL}`
     const [phone,setPhone] = useState("");
     const [password,setPassword] = useState("");
     const navigate = useNavigate();
     const handleLogin = async() => {
         try{
-            const res = await axios.post("http://localhost:5000/api/signup/login",{
+            const res = await axios.post(`${API}/api/signup/login`,{
             phone,
             password
         });

@@ -1,0 +1,23 @@
+services:
+  mongo:
+    image: "mongo"
+    ports:
+      - "8080:27017"
+    
+  backend:
+    build: "./messenger-backend"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    env_file:
+      - "./messenger-backend/.env.prod"
+  
+  frontend:
+    build: "./messenger-frontend"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    env_file:
+      - "./messenger-frontend/.env.prod"

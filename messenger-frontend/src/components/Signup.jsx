@@ -4,6 +4,8 @@ import axios from 'axios'
 import './Signup.css'
 
 function Signup() {
+
+    const API= `${process.env.REACT_APP_API_URL}`
     const[username,setUsername] = useState("")
     const[phone,setPhone] = useState("")
     const [password,setPassword] = useState("");
@@ -13,7 +15,7 @@ function Signup() {
     // const [step,setStep] = useState(1);
     const handleSignup = async() => {
       try{
-        const res = await axios.post("http://localhost:5000/api/signup",{
+        const res = await axios.post(`${API}/api/signup`,{
           username,
           phone,
           password

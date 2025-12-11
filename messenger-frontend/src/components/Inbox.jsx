@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import './Inbox.css'
 import axios from 'axios';
 function Inbox({onSelectContact}) {
+  const API= `${process.env.REACT_APP_API_URL}`
   const [popup,setPopUp] = useState(false);
   const [allContacts,setAllContacts]  = useState([]);
 
@@ -15,7 +16,7 @@ function Inbox({onSelectContact}) {
     try{
       const token = await localStorage.getItem("token");
 
-      const res = await axios.get("http://localhost:5000/api/savedcontact",{
+      const res = await axios.get(`${API}/api/savedcontact`,{
         headers:{
           Authorization:`Bearer ${token}`
         }
