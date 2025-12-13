@@ -2,7 +2,7 @@ name: MERN CI
 
 on:
   push:
-    branch: [main]
+    branches: [main]
 
 jobs:
   mongo-init:
@@ -23,8 +23,8 @@ jobs:
           node-version: 18
           
       - name: waiting for mongodb to be ready
-        run: 
-          untill nc -z localhost 27017; do
+        run: |
+          until nc -z localhost 27017; do
             echo "waiting for mongodb"
             sleep 2
           done
@@ -35,7 +35,7 @@ jobs:
         run: |
           npm install
           node seedtest.js
-          
+
   tests:
     runs-on: ubuntu-latest
     needs: mongo-init
@@ -51,9 +51,9 @@ jobs:
 
       - name: install dependencies for backend
         working-directory: ./messenger-backend
-        uses: npm install
+        run: npm install
 
       - name: running test cases
         working-directory: ./messenger-backend 
-        uses: npm test 
+        run: npm test 
      
