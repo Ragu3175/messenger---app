@@ -17,6 +17,7 @@ describe('POST api/signup' , () => {
             password:"4567"+random
         });
         expect(res.statusCode).toBe(201)
+        console.log(res.data,'DATA SEEDED')
     })
 })
 
