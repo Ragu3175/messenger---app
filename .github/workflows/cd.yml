@@ -19,5 +19,5 @@ jobs:
             cd messenger---app/
             git pull origin main
             docker-compose down
-            docker-compose -d --build 
+            docker-compose up --build -d
     
