@@ -3,7 +3,9 @@ services:
     image: "mongo"
     ports:
       - "8080:27017"
-    
+    volumes:
+      - ./mongo_data:/data/db
+
   backend:
     build: "./messenger-backend"
     ports:
