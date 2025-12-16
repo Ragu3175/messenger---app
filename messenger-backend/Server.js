@@ -11,27 +11,6 @@ const connectDb = require('./config/dbconfig');
 
 connectDb();
 
-// const app=express();
-// app.use(cors());
-// app.use(express.json());
-
-
-
-
-
-// app.get("/",(req,res) => {
-//     res.send("App is running");
-// })
-
-
-// const signup = require("./routes/Signuproute");
-// app.use("/api/signup",signup);
-
-// const savesContacts = require("./routes/contactRoute");
-// app.use("/api/savedcontact",savesContacts);
-
-// const messagehistory = require("./routes/MessageHistoryRoute")
-// app.use("/api/message",messagehistory);
 
 
 const { Socket } = require("dgram");
