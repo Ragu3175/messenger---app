@@ -11,13 +11,15 @@ services:
     depends_on:
       - mongo
     env_file:
-      - "./messenger-backend/.env.prod"
+      - "./messenger-backend/.env.production"
   
   frontend:
-    build: "./messenger-frontend"
+    build: 
+      context: "./messenger-frontend"
+      args:
+        REACT_APP_API_URL: http://3.27.239.74:5000
     ports:
       - "3000:3000"
     depends_on:
       - backend
-    env_file:
-      - "./messenger-frontend/.env.prod"
+   
