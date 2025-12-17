@@ -18,8 +18,7 @@ const { Socket } = require("dgram");
 const server = http.createServer(app);
 const io = new Server(server,{
     cors:{
-        // origin:["http://localhost:3000","http://13.239.118.104:3000"],
-        origin:"*",
+        origin:["http://localhost:3000","http://52.64.1.209:3000"],
         method:["GET","POST"]
     }
 });

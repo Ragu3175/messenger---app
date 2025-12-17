@@ -18,7 +18,7 @@ services:
     build: 
       context: "./messenger-frontend"
       args:
-        REACT_APP_API_URL: http://backend:5000
+        REACT_APP_API_URL: http://52.64.1.209:5000
     ports:
       - "3000:3000"
     depends_on:
