@@ -142,12 +142,7 @@
 .typing-area button:hover {
   transform: scale(1.05);
 }
-.back-btn{
-  width: 20px;
-  height: 10px;
-  border: 5px;
-  background-color: #111b21;
-}
+
 /* Responsive Design for Mobile Devices */
 @media (max-width: 768px) {
   .chat {
