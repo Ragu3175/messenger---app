@@ -155,7 +155,9 @@
     overflow-y: auto;
     display: block;
   }
-
+   .user-num.hide-on-mobile {
+    display: none;
+  }
   .message-area {
     width: 100%;
     height: 100%;
