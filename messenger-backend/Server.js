@@ -1,5 +1,4 @@
-// const express = require("express");
-// const cors = require("cors");
+
 
 const app=require('./app')
 const dotenv = require("dotenv").config();
@@ -12,7 +11,6 @@ const connectDb = require('./config/dbconfig');
 connectDb();
 
 
-
 const { Socket } = require("dgram");
 
 const server = http.createServer(app);
@@ -22,7 +20,6 @@ const io = new Server(server,{
         method:["GET","POST"]
     }
 });
-
 io.use((socket,next) => {
     const token = socket.handshake.auth.token;
     if(!token) {
