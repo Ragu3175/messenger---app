@@ -76,6 +76,8 @@
 }
 
 /* Messages List */
+/* Messages List */
+/* Messages List */
 .messages {
   flex: 1;
   padding: 15px;
@@ -85,25 +87,32 @@
   gap: 12px;
 }
 
+/* Individual message */
 .message {
-  max-width: 70%;
-  padding: 12px;
+  max-width: 60%; /* reduce width so messages don't stretch too long */
+  padding: 12px 15px;
   border-radius: 10px;
   font-size: 15px;
-  word-break: break-word;
+  word-break: break-word; /* wrap long words */
+  white-space: pre-wrap; /* keep line breaks if any */
+  line-height: 1.4;
 }
 
+/* Sent messages */
 .sent {
   align-self: flex-end;
   background: var(--self-msg);
   color: white;
 }
 
+/* Received messages */
 .received {
   align-self: flex-start;
   background: var(--other-msg);
   color: black;
 }
+
+
 
 /* Typing area */
 .typing-area {
@@ -169,6 +178,7 @@
     height: 100%;
     display: none;
   }
+ 
 
   /* Show chat area when active */
   .message-area.active {
@@ -177,5 +187,10 @@
 
   .back-btn {
     display: block;
+  }
+}
+ @media (max-width: 768px) {
+  .message {
+    max-width: 90%;
   }
 }
