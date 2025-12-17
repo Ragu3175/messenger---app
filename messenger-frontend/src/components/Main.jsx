@@ -107,8 +107,10 @@ function Main() {
         </div>
        {selectContact ? (
             <div className={`message-area ${selectContact ? 'active' : ''}`}>
-              <button className="back-btn" onClick={() => setSelectContact(null)}>← Back</button>
-              <h1>Phone:{selectContact.phone}</h1>
+              <div className="message-header" style={{position:'relative'}}>
+                <button className="back-btn" onClick={() => setSelectContact(null)}>← Back</button>
+                <h1>Phone:{selectContact.phone}</h1>
+              </div>
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 {messages.map((m, i) => (
                   <li key={i} style={{ textAlign: m.isOwn ? 'right' : 'left', margin: '10px 0' }}>

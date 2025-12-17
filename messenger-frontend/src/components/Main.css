@@ -65,7 +65,7 @@
   flex-direction: column;
 }
 
-.message-area h1 {
+.message-header h1 {
   background: var(--accent);
   color: white;
   padding: 15px;
@@ -73,6 +73,24 @@
   font-size: 1.1rem;
   font-weight: bold;
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.back-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  color: #ddd;
 }
 
 /* Messages List */
