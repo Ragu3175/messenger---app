@@ -105,44 +105,37 @@ function Main() {
         <div className="user-num">
           <Inbox onSelectContact = {handleSelectConatct}/>
         </div>
-        {selectContact ? (
-        <>
-          <div className="message-area">
-         
-          <h1>Phone:{selectContact.phone}</h1>
-          
-          <ul style={{ listStyle: 'none', padding: 0 }}>
-                  {messages.map((m, i) => (
-                      <li key={i} style={{
-                          textAlign: m.isOwn ? 'right' : 'left',
-                          margin: '10px 0'
-                      }}>
-                          <div style={{
-                              display: 'inline-block',
-                              padding: '8px 12px',
-                              borderRadius: '8px',
-                              backgroundColor: m.isOwn ? '#0084ff' : '#e4e6eb',
-                              color: m.isOwn ? 'white' : 'black'
-                          }}>
-                              <b>{m.isOwn ? 'me' : m.from}</b>: {m.text}
-                          </div>
-                      </li>
-                  ))}
+       {selectContact ? (
+            <div className={`message-area ${selectContact ? 'active' : ''}`}>
+              <button className="back-btn" onClick={() => setSelectContact(null)}>← Back</button>
+              <h1>Phone:{selectContact.phone}</h1>
+              <ul style={{ listStyle: 'none', padding: 0 }}>
+                {messages.map((m, i) => (
+                  <li key={i} style={{ textAlign: m.isOwn ? 'right' : 'left', margin: '10px 0' }}>
+                    <div style={{
+                        display: 'inline-block',
+                        padding: '8px 12px',
+                        borderRadius: '8px',
+                        backgroundColor: m.isOwn ? '#0084ff' : '#e4e6eb',
+                        color: m.isOwn ? 'white' : 'black'
+                    }}>
+                      <b>{m.isOwn ? 'me' : m.from}</b>: {m.text}
+                    </div>
+                  </li>
+                ))}
               </ul>
               <div className="typing-area">
-         
-          <input type="text" value={message} placeholder="type your message...." onChange={(e) => setMessage(e.target.value)}/>
-          
-          <button onClick={sendmessage}>Sent</button>
-          </div>
-          </div>
-          </>
-          ):(
-            <p>Select a conatact to start a chat</p>
+                <input type="text" value={message} placeholder="type your message...." onChange={(e) => setMessage(e.target.value)}/>
+                <button onClick={sendmessage}>Sent</button>
+              </div>
+            </div>
+          ) : (
+            <p className="mobile-instruction">Select a contact to start a chat</p>
           )}
+
         
        
-          </div>
+        </div>
     </div>
   )
 }

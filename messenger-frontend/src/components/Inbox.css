@@ -1,139 +1,17 @@
-/* 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+.left-part {
+  color: white;
   height: 100%;
-  backdrop-filter: blur(6px);
-  background-color: rgba(255, 255, 255, 0.3); 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeIn 0.2s ease;
-}
-
-
-.modal-content {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  width: 350px;
-  max-width: 90%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  animation: popup 0.25s ease;
-}
-
-.modal-content h2 {
-  margin-bottom: 15px;
-  font-size: 20px;
-  color: #333;
-}
-
-
-.contact-save {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
-.contact-save input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  outline: none;
-  font-size: 14px;
-  transition: border-color 0.2s;
-}
-
-.contact-save input:focus {
-  border-color: #007bff;
-}
-
-.contact-save button {
-  background-color: #28a745;
-  color: white;
-  padding: 8px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s;
-}
-
-.contact-save button:hover {
-  background-color: #218838;
-}
-
-
-.modal-actions {
-  margin-top: 15px;
-  text-align: right;
-}
-
-.close-btn {
-  padding: 8px 14px;
-  background-color: #ccc;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s;
-}
-
-.close-btn:hover {
-  background-color: #999;
-}
-
-
-@keyframes popup {
-  from {
-    transform: scale(0.85);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    background-color: rgba(255, 255, 255, 0);
-  }
-  to {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-}
-
-.inbox button {
-  padding: 10px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s;
-}
-
-.inbox button:hover {
-  background-color: #0056b3;
-}  */
-
-
+/* Saved contacts heading */
 .all-contacts h1 {
   color: white;
   margin-bottom: 10px;
 }
 
-.left-part {
-  color: white;
-}
-
+/* New contact button */
 .pop-screen-contactsaving button {
   margin-bottom: 10px;
   padding: 8px 15px;
@@ -144,26 +22,53 @@
   cursor: pointer;
 }
 
-/* Modal Popup */
+/* Contact list */
+.all-contacts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+
+.all-contacts li {
+  padding: 10px;
+  border-radius: 6px;
+  background: var(--sidebar-hover);
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.all-contacts li:hover {
+  background: #3b4a54;
+}
+
+/* Modal overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  background-color: rgba(0,0,0,0.5); 
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modal-content {
-  background: white;
+  background: #ffffff;
   width: 350px;
+  max-width: 90%;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
+  text-align: center;
 }
 
+/* Close button */
 .close-btn {
   margin-top: 10px;
   padding: 8px 14px;
@@ -171,4 +76,28 @@
   color: white;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .left-part {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .all-contacts ul {
+    max-height: none;
+  }
+
+  .pop-screen-contactsaving button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+  }
 }

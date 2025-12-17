@@ -1,57 +1,56 @@
-/* Container */
 .contact-save {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 /* Input fields */
 .contact-save input {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    outline: none;
-    transition: 0.2s ease;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.2s ease;
 }
 
 .contact-save input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0,123,255,0.4);
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.4);
 }
 
-/* Button */
+/* Save Button */
 .contact-save button {
-    padding: 12px;
-    font-size: 16px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s ease;
+  padding: 12px;
+  font-size: 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .contact-save button:hover {
-    background: #0056b3;
+  background: #0056b3;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 480px) {
-    .contact-save {
-        margin: 20px;
-        padding: 15px;
-    }
+  .contact-save {
+    margin: 20px;
+    padding: 15px;
+  }
 
-    .contact-save input,
-    .contact-save button {
-        font-size: 14px;
-        padding: 10px;
-    }
+  .contact-save input,
+  .contact-save button {
+    font-size: 14px;
+    padding: 10px;
+  }
 }
