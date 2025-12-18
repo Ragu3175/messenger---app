@@ -32,6 +32,7 @@ function Login() {
     
     <div className="login-page">
         <div className="login">
+            <h1>Login</h1>
             <input type="tel" pattern="[0-9]{10}" required placeholder="enter the phone number" value={phone} onChange={(e) => setPhone(e.target.value)}/>
             <input type="password" placeholder="enter the password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <button onClick={handleLogin}>Submit</button>
