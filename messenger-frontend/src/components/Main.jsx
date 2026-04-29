@@ -7,7 +7,7 @@ import axios from "axios";
 function Main() {
    const API= `${process.env.REACT_APP_API_URL}`
     const[message,setMessage] = useState("");
-    const [toPhone,setToPhone]=useState("");
+    // const [toPhone,setToPhone]=useState("");
     // const [contact,setContact] = useState([]);
     const[messages,setMessages] = useState([]);
     const[socket,setSocket] = useState(null);
@@ -48,6 +48,7 @@ function Main() {
 
     useEffect(() => {
       const token = localStorage.getItem("token");
+      console.log(token)
       if(!token) return;
 
       const newSocket = io(`${API}`,{
